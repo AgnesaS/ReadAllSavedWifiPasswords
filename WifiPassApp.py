@@ -40,3 +40,22 @@ def see_wifi_pass():
             myList.append("Wifi-->" +i)
             # myList.append("--")
             myList.append("")
+
+def show_wifi_pass():
+    def listToString(s):
+        # initialize an empty string
+        myStr = ""
+
+        # traverse in the string
+        for ele in s:
+            myStr = myStr +  ele + "\n"
+
+            # return string
+        return myStr
+    myStr = listToString(myList)
+    pass_details.set(myStr)
+
+
+def copytoclipboard():
+    password = pass_details.get()
+    pyperclip.copy(password)
