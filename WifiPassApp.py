@@ -59,3 +59,11 @@ def show_wifi_pass():
 def copytoclipboard():
     password = pass_details.get()
     pyperclip.copy(password)
+    
+Label(root, text="Get Your Saved Wifi Passwords", bg="white",font= "Helvetica 20" ).place(x = 270,y = 200)
+Button(root, text="Initiate Process Now",bg="lightblue",width='20' ,height='1',font="Raleway",command=see_wifi_pass).place(x = 382, y = 282)
+Button(root, text="Show all saved wifi passwords",width='25' ,height='1',font="Raleway", bg="lightblue",command=show_wifi_pass).place(x = 360, y = 330)
+Entry(root, textvariable=pass_details , bg="light steel blue").place(width=600, height=80, x = 180, y = 370)
+Button(root, text="Copy to clipbord",bg="lightblue",width='20' ,height='1',font="Raleway",command=copytoclipboard).place(x = 590, y = 460)
+
+root.mainloop()
