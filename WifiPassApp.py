@@ -32,12 +32,12 @@ def see_wifi_pass():
                 myList.append("------------------------")
             else:
                 myList.append("Wifi-->" + i)
-                # myList.append("--")
+
                 myList.append("Password-->" +results[0]+"| Strong")
                 myList.append("------------------------")
         except IndexError:
             myList.append("Wifi-->" +i)
-            # myList.append("--")
+           
             myList.append("")
 
 def show_wifi_pass():
