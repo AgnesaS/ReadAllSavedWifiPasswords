@@ -3,6 +3,11 @@ import tkinter as tk
 import pyperclip
 import re
 from PIL import Image, ImageTk
+import numpy as np
+import pandas as pd
+from pandas import Series, DataFrame
+import matplotlib.pyplot as plt
+
 root = tk.Tk()
 root.geometry("900x900")
 pass_details = StringVar()
@@ -59,24 +64,37 @@ def copytoclipboard():
     password = pass_details.get()
     pyperclip.copy(password)
     
-    def show_strength():
+def show_strength():
     def listToString(s):
-        # initialize an empty string
+  # initialize an empty string
         mystr = ""
 
-        # traverse in the string
+  # traverse in the string
         for ele in s:
             mystr = mystr +  ele + "\n"
 
-            # return string
+       # return string
         return mystr
     mystr = listToString(strength)
     strength_details.set(mystr)
+    
+def graph():
+    strength1 = strength_details.get()
+    strength2= strength1.split()
+    for i in strength2:
+        if i=='Weak':
+            data.append(20)
+        elif i=='Strong':
+            data.append(60)
+    plt.bar([1,2,3,4], data)
+    plt.show()
     
 Label(root, text="Get Your Saved Wifi Passwords", bg="white",font= "Helvetica 20" ).place(x = 270,y = 200)
 Button(root, text="Initiate Process Now",bg="lightblue",width='20' ,height='1',font="Raleway",command=see_wifi_pass).place(x = 382, y = 282)
 Button(root, text="Show all saved wifi passwords",width='25' ,height='1',font="Raleway", bg="lightblue",command=show_wifi_pass).place(x = 360, y = 330)
 Entry(root, textvariable=pass_details , bg="light steel blue").place(width=600, height=80, x = 180, y = 370)
 Button(root, text="Copy to clipbord",bg="lightblue",width='20' ,height='1',font="Raleway",command=copytoclipboard).place(x = 590, y = 460)
+Button(root, text="Show graph",bg="lightblue",width='20' ,height='1',font="Raleway",command=graph).place(x = 590, y = 500)
+
 
 root.mainloop()
