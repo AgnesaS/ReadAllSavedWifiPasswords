@@ -10,6 +10,12 @@ canvas.grid(columnspan=3, rowspan=3)
 pass_details = StringVar()
 myList = []
 
+
+
+bg = PhotoImage(file="logo.png")
+my_label=Label(root,image=bg)
+my_label.place(x=0,y=0 ,  relwidth=1, relheight=1)
+
 def see_wifi_pass():
     import subprocess
     global myList
